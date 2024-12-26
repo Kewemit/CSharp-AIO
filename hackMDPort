@@ -1,0 +1,908 @@
+---
+title: C# ChShe
+
+---
+
+# C# ChShe
+
+<!-- Put the link to this slide here so people can follow -->
+Resources:
+{%youtube wxznTygnRfQ%}
+
+---
+
+# String methods 
+![unnamed](https://hackmd.io/_uploads/BkxC36MgZ1g.png)
+
+
+
+```typescript
+//Replace character
+String number = "40-67-80-40";
+// To remove the dashes use
+numReplaced = number.Replace("-"," "); -> //(oldChar, newChar)
+-> 40 67 80 40
+
+//All uppercase
+string text = "caller";
+textUp = text.ToUpper();
+Console.Writeline(textUp);
+-> CALLER
+
+//Insert to the string
+String username = "Kewemit";
+String userIns = username.Insert(0,"@") -> number represents where to place the @
+Console.Writeline(userIns);
+
+//Length of string
+String username = "Kewemit"
+Console.Writeline(username.Length);
+
+//Substring
+string fullName = "Kewe mit";
+string firstName = fullName.Substring(0, 4); -> //In this case the 0 refer to K in fullName
+
+string lastName = fullName.Substring(5,3); -> //The second number starts from 0 again
+
+Console.WriteLine(firstName);
+Console.WriteLine(lastName);
+
+
+```
+# If statement
+![if-else-statement-csharp](https://hackmd.io/_uploads/SkIqaMgbyg.png)
+
+
+```typescript
+//Age checking example
+
+Console.WriteLine("Enter your age: ");
+int age = Convert.ToInt32(Console.ReadLine());
+
+if(age >= 105)
+{
+    Console.WriteLine("You are too old");
+}
+else if (age >= 18)
+{
+    Console.WriteLine("You've signed up");
+}
+else if (age <= 0)
+{
+    Console.WriteLine("You havent been born yet");
+}
+else
+{
+    Console.WriteLine("You are too young");
+}
+
+//The process goes like => IF if is false THEN IF else if = false THEN IF else if = false THEN run else
+
+//If for example the first else if = true then it skips the rest
+##If statement Structure example##
+
+Console.WriteLine("What day is it: ");
+String day = Console.ReadLine();
+if(day = "Monday" )
+{
+    do x;
+}
+else if(day = "Tuesday")
+{
+    do x;
+}
+.
+.
+.
+else if(day = "Friday")
+{
+    do x;
+}
+else
+{
+    Console.Writeline(day + "is not a day");
+}
+If nothing of the above matches and you used else if's then the else command will run at the end.
+
+
+//Name greeter script
+
+Console.WriteLine("Enter your name: "); // Dislays text in console
+string name = Console.ReadLine(); // Waits for user input
+
+if (name == "") // if the string is empty then ->
+{
+    Console.WriteLine("No input or invalid"); //Returns invalid
+}
+else
+{
+    Console.WriteLine("Hello " + name);
+}
+
+
+```
+---
+# Switches
+![switch-statement-flowchart](https://hackmd.io/_uploads/B1X0oGeb1x.jpg)
+Switches are an alternative and cleaner way to use else if statements. Below is an example.
+``` typescript
+static void Main()
+   
+{
+ Console.WriteLine("What day is it: "); // Type a message to the console
+ String day = Console.ReadLine(); // Wait for user input and store the input to the string day
+
+ //*Optional
+ String daySub = day.Substring(0,1); // Get the first letter from the user input in day 
+ String dayUpper = daySub.ToUpper(); // uppercase the first letter that is now stored in daySub
+ String dayFinal = day.Replace(daySub, dayUpper); // Replace the uppercased letter to the original input
+
+
+ switch (dayFinal) // holds the cases for the switch. dayFinal inside the brackets matches the input to the case name.
+ {
+    case "Monday": // the switch checks if the dayFinal input matches with the name
+        Console.WriteLine("Its monday"); // if it matches then write this
+        break; // break; exits out of the current case so you can start a new one 
+    case "Tuesday":
+        Console.WriteLine("Its tuesday");
+        break;
+    case "Wednesday":
+        Console.WriteLine("Its Wednesday");
+            break;
+    case "Thursday":
+        Console.WriteLine("Its thursday");
+            break;
+    case "Friday":
+        Console.WriteLine("its Friday");
+        break;
+    default: // if none of the above cases match the input, then run this case
+        Console.WriteLine(dayFinal + " Is not a correct day"); // outputs the dayFinal input + Is not a correct day
+        break; // exits out of the case
+ }
+}
+```
+#  Logical operators
+![kuva](https://hackmd.io/_uploads/ByVjAMeW1l.png)
+Logical operators can be used to check if 1 or more conditions are true or false.
+```typescript
+//For example
+double temperature = 3;
+if (temperature > 0 && temperature < 5) 
+{
+    Console.WriteLine("It works");
+}
+//The code above would print out *It works* to the console because both of the statements are true.
+
+
+double temperature = 20; // Modified the number to be above 5 so the first statement would be true whereas the second is false
+if (temperature > 0 || temperature < 5) 
+{
+    Console.WriteLine("It works");
+}
+
+//This code also prints out It works even though it wouldnt do that if we tried the same on the code above. With the || operator only one of the statements have to be true.
+```
+#   While Loop
+![csharp_while_loop_flow_chart_diagram](https://hackmd.io/_uploads/BJpx77gWJx.png)
+
+The while loop loops through a block of code as long as a specified condition is True:
+
+```typescript
+static void Main()
+   
+{
+    String name = ""; // stores nothing inside the string name
+    while (name == "") // while name = "" -> do the stuff inside the brackets
+    {
+        Console.WriteLine("Hello, please enter your name:"); // will keep repeating these 2, until the name == to something else
+        name = Console.ReadLine(); 
+        
+    }
+    Console.WriteLine("Hello " + name); // after the while loop is broken display this in console
+}
+
+```
+This code will loop everything inside While{}, until the condition changes.
+
+# For Loop
+![for-loop](https://hackmd.io/_uploads/rkl9SQlbJl.png)
+In programming, it is often desired to execute certain block of statements for a specified number of times. This is where the for loop comes into play. If you know that you want to run a loop x times, then you should use for loop.
+
+Below is an example of a for loop that runs 10 times
+
+```typescript
+for (int i = 1; i <= 10; i++) // Initialization; condition; updation
+{
+    Console.WriteLine(i); // Displays the index value in console
+}
+//-> [then run the code here]
+
+// the output for this will be like this but from top to down:
+//1,2,3,4,5,6,7,8,9,10
+//
+// You can also minus from the index like so
+for (int i = 10; i >= 0; i--) // Initialization; condition; updation
+{
+    Console.WriteLine(i); // Displays the index value in console
+}
+//-> [then run the code here]
+
+
+// the output for this will be like this but top to down:
+//10,9,8,7,6,5,4,3,2,1,0
+
+```
+# Nested Loops
+loops inside other loops. Used a alot in sorting algorithms
+
+```typescript    
+
+ Console.WriteLine("How many rows?: ");
+  int rowAmount = Convert.ToInt32(Console.ReadLine()); 
+  Console.WriteLine("How many columns?: ");
+  int columnAmount = Convert.ToInt32(Console.ReadLine());
+  string symbol = "";
+  while(symbol == "") 
+  {
+      Console.WriteLine("What symbol?:");
+      symbol = Console.ReadLine();
+  }
+  for(int i = 0; i < rowAmount; i++) 
+  {
+     
+      for(int j = 0; j < columnAmount; j++) 
+      {
+          Console.Write(symbol);
+
+      }
+      Console.WriteLine(); // After the inner loop has run once then run this and repeat for i
+  }
+// if rowAmount = 3 and columAmount = 3 and symbol = @ the output would be
+//
+//@@@
+//@@@
+//@@@
+
+//A half triangle made from numbers
+int number = 10;
+
+for (int rowAmount = 1; rowAmount <= number ; rowAmount++) 
+{
+    for (int colAmount = 1; colAmount <= rowAmount; colAmount++)
+    {
+        Console.Write(colAmount + " ");
+    }
+    Console.WriteLine();
+   
+}
+// this code would output
+//1
+//1 2
+//1 2 3 4
+//1 2 3 4 5
+//1 2 3 4 5 6
+//1 2 3 4 5 6 7
+//1 2 3 4 5 6 7 8
+//1 2 3 4 5 6 7 8 9
+//1 2 3 4 5 6 7 8 9 10
+
+```
+
+
+# Small applications
+
+
+#### Number guessing game
+![kuva](https://hackmd.io/_uploads/B1BgOm-Wyg.png)
+
+```typescript
+
+
+static void Main()
+
+{
+    int maxGuesses = 10;
+    bool playAgain = true;
+    string yesOrNo;
+
+    Console.WriteLine("Number guessing game 1.0");
+    Console.WriteLine();
+
+    while (playAgain)
+    {
+        Console.WriteLine("Guess a number between 1-100, you have " + maxGuesses + " guesses in total");
+        Console.WriteLine();
+        Random random = new Random();
+        int chosenNumber = random.Next(1, 101);
+        int playerNum = 0;
+        int guesses = 0;
+        yesOrNo = "";
+
+        while (playerNum != chosenNumber)
+    {
+        guesses++;
+        playerNum = Convert.ToInt32(Console.ReadLine());
+        string nullCheck = Convert.ToString(playerNum);
+        
+      
+        if (playerNum == chosenNumber && guesses <= maxGuesses)
+        {
+            Console.WriteLine("Congrats the number was: " + chosenNumber + ", it took you: " + guesses + " guess(es)");
+               
+        }
+        else if (guesses >= maxGuesses) 
+        {
+            Console.WriteLine("You ran out of guesses");
+            return;
+        }
+        else if(playerNum > chosenNumber) 
+        {
+            Console.WriteLine(playerNum + " is too high, guess lower");
+            Console.WriteLine();
+        }
+        else if(playerNum < chosenNumber) 
+        {
+            Console.WriteLine(playerNum + " is too low, guess higher");
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.WriteLine("Guess again");
+            Console.WriteLine();
+        }
+    }
+        Console.WriteLine("Do you want to play again? Y/N");
+        yesOrNo = Console.ReadLine();
+        yesOrNo = yesOrNo.ToUpper();
+
+        if (yesOrNo == "Y")
+        {
+            playAgain = true;
+        }
+        else
+        {
+            playAgain = false;
+        }
+
+    }
+    
+    Console.WriteLine();
+    Console.WriteLine("Press Enter twice to exit;");
+    Console.ReadKey();
+    Environment.Exit(0);
+
+
+}
+```
+---
+#### Rock Paper Scissors (with colors)
+![kuva](https://hackmd.io/_uploads/Hk66Lm--Jl.png)
+
+
+```typescript
+static void Main()
+
+{
+    bool playAgain = true;
+    string choice = "";
+    string uInput;
+    string computer;
+    Random random = new Random();
+
+    while (playAgain)
+    {
+        uInput = "";
+        computer = "";
+
+
+        while (uInput != "ROCK" && uInput != "PAPER" && uInput != "SCISSORS")
+        {
+            choice = "";
+            Console.Write("Enter ROCK, PAPER, or SCISSORS: "); 
+            uInput = Console.ReadLine();
+            uInput = uInput.ToUpper();
+            Console.WriteLine();
+        }
+        
+        switch (random.Next(1, 4))
+            {
+            case 1:
+                computer = "ROCK";
+                break;
+            case 2:
+                computer = "PAPER";
+                break;
+            case 3:
+                computer = "SCISSORS";
+                    break;
+              
+            }
+        Console.WriteLine("Player: " + uInput);
+        Console.WriteLine("Computer: " + computer);
+        Console.WriteLine();
+
+        switch (uInput)
+        {
+            case "ROCK":
+                if (computer == "ROCK")
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("It's a draw");
+                    Console.ResetColor();
+                }
+                else if (computer == "PAPER")
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You Lost");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("You win");
+                    Console.ResetColor();
+                }
+                playAgain = false;
+
+                break;
+            case "PAPER":
+                if (computer == "ROCK")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("You win");
+                    Console.ResetColor();
+                }
+                else if (computer == "PAPER")
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("It's a draw");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You Lost");
+                    Console.ResetColor();
+                }
+                playAgain = false;
+
+                break;
+            case "SCISSORS":
+                if (computer == "ROCK")
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You Lost");
+                    Console.ResetColor();
+                }
+                else if (computer == "PAPER")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("You win");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("It's a draw");
+                    Console.ResetColor();
+                }
+                playAgain = false;
+
+                break;
+        }
+        
+        while(choice != "Y" &&  choice != "N") 
+        {
+            Console.WriteLine("Do you want to play again? Y/N");
+            choice = Console.ReadLine();
+            choice = choice.ToUpper();
+            if (choice == "Y") playAgain = true;
+            else playAgain = false;
+        }
+    }
+    Console.WriteLine();
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine("Thanks for playing :)");
+    Console.ResetColor();
+    
+}
+
+```
+#### Get current goldprice from API
+```typescript
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using static System.Net.WebRequestMethods;
+
+class Program
+{
+    static async Task Main() // Needs to be async Task instead of void so await works.
+    {
+        var client = new HttpClient(); // Reference HttpClient;
+        var target = new Uri("https://api.api-ninjas.com/v1/goldprice"); //Define a url into a variable for easier call
+
+        client.DefaultRequestHeaders.Add("X-Api-Key", "XXXXXXXXXXXXXXXXX"); //Add a header with your API key (if needed)
+        var result = client.GetAsync(target).Result; // GETs the result from the site
+        var jsonString = await result.Content.ReadAsStringAsync(); // waits for the result and turns it into string 
+        Console.WriteLine(jsonString); // outputs the content of jsonString.
+
+    }
+
+}
+```
+# Arrays
+![kuva](https://hackmd.io/_uploads/BkuBsUbZke.png)
+
+#### An Array is an variable that can store multiple values. fixed size (cant access anything outside of array eg. string[] cars {"BMW", "Mustang"} then Console.Writeline(cars[5]) would return an error).
+---
+```typescript
+static void Main()
+
+{
+    //string[] cars = {"BMW", "Mustang", "Corvette"};
+    string[] cars = new string[3]; // only allow upto 3 new arrays inside
+
+    cars[0] = "BMW";
+    cars[1] = "Mario-Kart";
+    cars[2] = "Mercedes";
+
+    //cars[0] = "Formula";
+
+    for (int i = 0; i < cars.Length; i++)
+    {
+        Console.WriteLine(cars[i]);
+    }
+}
+
+```
+Or alternatively the same results
+```typescript
+
+static void Main()
+
+{
+    string[] cars = {"BMW", "Mustang", "Corvette"};
+
+    //cars[0] = "Formula";
+
+    for (int i = 0; i < cars.Length; i++)
+    {
+        Console.WriteLine(cars[i]);
+    }
+}
+
+```
+# Foreach loop
+Foreach loop is a simpler way to iterate over an array, but less flexible
+The code below will output this
+![kuva](https://hackmd.io/_uploads/SJQmnWH-Jg.png)
+
+```typescript
+public static void Main()
+{
+    string[] cars = { "BMW", "Tesla", "Batmobile" }; // list cars in an array
+
+    foreach(string car in cars) // For each car in the variable cars do x thing,, The car is like a nickname for cars
+        {
+            Console.WriteLine(car); // this will print out all cars in the cars variable
+        }
+}
+```
+# Methods
+A method performs a section of code whenever its called "invoked". The benefit is that it let's you reuse code without typing it multiple times.
+```typescript
+//Simple example
+//If you want to execute this code three times
+Console.WriteLine("Happy birthday to you");
+Console.WriteLine("Happy birthday to you");
+Console.WriteLine("Happy birthday to dear you");
+Console.WriteLine("Happy birthday to you");
+Console.WriteLine();
+//You would have to paste it three times in a row which clutters up your code view. Instead you can do this.
+public static void Main()
+{
+    MyMethodExample();
+}
+static void MyMethodExample()
+{
+    Console.WriteLine("Happy birthday to you");
+    Console.WriteLine("Happy birthday to you");
+    Console.WriteLine("Happy birthday to dear you");
+    Console.WriteLine("Happy birthday to you");
+    Console.WriteLine();
+}
+//In this code you put the code inside a method and call it. Now if you wanted to repeat it three times you could do this
+public static void Main()
+{
+    MyMethodExample();
+    MyMethodExample();
+    MyMethodExample();
+}
+static void MyMethodExample()
+{
+    Console.WriteLine("Happy birthday to you");
+    Console.WriteLine("Happy birthday to you");
+    Console.WriteLine("Happy birthday to dear you");
+    Console.WriteLine("Happy birthday to you");
+    Console.WriteLine();
+}
+//Notice how much cleaner this is.
+```
+Methods dont have access to any variables within another method, this is why we need to use arguments to use the values.
+```typescript
+ public static void Main()
+ {
+     string name = "You";
+     MyMethodExample();
+ }
+ static void MyMethodExample(string name) // this method needs a parameter. Parameter = WHat a method needs to receive to be invoked. In other words parameter is what the method is expecting to receive
+//You need to list a datatype before the variable to create the parameter. In this case it's string as the name variable is a string
+ {
+     Console.WriteLine("Happy birthday to you");
+     Console.WriteLine("Happy birthday to you");
+     Console.WriteLine("Happy birthday to dear " + name);
+     Console.WriteLine("Happy birthday to you");
+     Console.WriteLine();
+ }
+// IF you need to send multiple variables to another method this is how to do it:
+public static void Main()
+{
+    string name = "You";
+    int age = 10;
+    MyMethodExample(name, age); // Here you declare the variable in this method.
+}
+static void MyMethodExample(string name, int age) // Here this is what the method is expecting to receive.
+{
+    Console.WriteLine("Happy birthday to you");
+    Console.WriteLine("Happy birthday to you");
+    Console.WriteLine("Happy birthday to dear " + name);
+    Console.WriteLine("You are now " + age + " years old!");
+    Console.WriteLine("Happy birthday to you");
+    Console.WriteLine();
+}
+
+//The parameters don't necessarily need to be the same name as the arguments that you pass:
+public static void Main()
+{
+    string name = "You";
+    int age = 10;
+    MyMethodExample(name, age);
+}
+static void MyMethodExample(string BirthdayName, int ageYears)
+{
+    Console.WriteLine("Happy birthday to you");
+    Console.WriteLine("Happy birthday to you");
+    Console.WriteLine("Happy birthday to dear " + BirthdayName);
+    Console.WriteLine("You are now " + ageYears + " years old!");
+    Console.WriteLine("Happy birthday to you");
+    Console.WriteLine();
+}
+//You dont have to keep the same name but what is IMPORTANT is the data type and the order which you pass in the variables!
+```
+
+# Return keyword
+The return keyword returns data bakc to the place where a mehtod is invoked
+```typescript
+//When you declare a method make sure it's outside the main method like this:
+ public static void Main()
+ {
+     
+ }
+ static void Multiply(double x, double y) 
+ {
+
+ }
+ public static void Main()
+ { 
+     
+ }
+ static void Multiply(double x, double y)  // we pass in 2 numbers as arguments
+ {
+     double z = x * y;
+     
+     return z; //TO return data back to where it was invoked you need to know the datatype. When you return a datatype you need tho change the void into a matching datatype. In this case as we return a double we need to change the void into a double
+ }
+
+//Here we changed the void of Multiply into a Double.
+static double Multiply(double x, double y)  // Change the void to double because it is the datatype we want to return. If you dont return anything you can keep it as a void.
+ {
+     double z = x * y;
+     return z; // When you return a datatype you need tho change the void into a matching datatype. In this case as we return a double we need to change the void into a double
+ }
+```
+#### Example script
+```typescript
+    public static void Main()
+    {
+        double x;
+        double y;
+        double result;
+
+        Console.WriteLine("Enter in number 1: ");
+        x = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Enter in number 2: ");
+        y = Convert.ToDouble(Console.ReadLine());
+
+        result = Multiply(x, y); // we enter x,y as we need to pass in 2 double variables.
+
+        Console.WriteLine(result);
+    }
+    static double Multiply(double x, double y) 
+    {
+        double z = x * y;
+        return z; // This will return whatever z is back to the spot where the Multiply method is invoked
+    }
+ 
+    }
+```
+#### This Code can also be shortened as you dont necessarily have to define z
+```typescript
+public static void Main()
+{
+    double x;
+    double y;
+    double result;
+
+    Console.WriteLine("Enter in number 1: ");
+    x = Convert.ToDouble(Console.ReadLine());
+
+    Console.WriteLine("Enter in number 2: ");
+    y = Convert.ToDouble(Console.ReadLine());
+
+    result = Multiply(x, y); // we enter x,y as we need to pass in 2 double variables.
+
+    Console.WriteLine(result);
+}
+static double Multiply(double x, double y) 
+{
+   
+    return x * y; // This will return whatever the output of x*y is back to the spot where the Multiply method is invoked
+}
+```
+# Method Overloading
+The methods can share same names but different parameters. 
+#### Example
+```typescript
+static public void Main(string[] args)
+{ 
+
+   double total = Multiply(4, 4, 8);
+    Console.WriteLine(total);
+}
+static double Multiply(double a, double b) 
+{
+    return a * b;
+}
+static double Multiply(double a, double b, double c) 
+{
+    return a * b * c;
+}
+
+```
+# Params keyword
+Method parameter that takes a variable number of arguments
+```typescript
+ static public void Main(string[] args)
+ {
+     // Emulates a shopping list where e.g 4€ & 5€ & 6€
+     double total = Checkout(4, 5, 6);
+     // Write the total of the checkout variable to console
+     Console.WriteLine(total);
+ }
+ // Here we use the params keyword that adds all the values in line 9 to the prices array
+ static double Checkout(params double[] prices) 
+ {
+     // Makes the total 0
+     double total = 0;
+     // For each price in prices add the price to he total
+     foreach(double price in prices) 
+     {
+         total += price;
+     }
+     return total;
+ }
+```
+# Exception handling
+#### Different exception handlers
+Try = try some code that is "dangerous"
+Catch = catches and handles exceptions when they occur
+Finally = always execute even if the exception is not caught
+```typescript
+static public void Main(string[] args)
+{
+    try
+    {
+        Console.WriteLine("Enter number 1: ");
+        int x = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Enter number 2: ");
+        int y = Convert.ToInt32(Console.ReadLine());
+
+        // Divide double x by double y
+        double result = x / y;
+
+        Console.WriteLine("result: " + result);
+
+    }
+    // Will run if user types a letter instead of a number
+    catch (FormatException e)
+    {
+        Console.WriteLine("Only enter numbers");
+    }
+    // Will run if a user tries to divide by zero
+    catch (DivideByZeroException e)
+    {
+        Console.WriteLine("Divided by zero");
+    }
+    // Will run if any other exception runs. It's bad to use this as the user doesn't know what went wrong.
+    catch (Exception e) 
+    {
+        Console.WriteLine("Something went wrong");
+    }
+    finally // "Used if you want to close open files or if you need to reset anything" - CodeBro : The finally block will execute whether or not there are exceptions
+    // If there is an FormatException it will first run that then run this. TLDR: Both this and catch runs.
+    {
+        Console.WriteLine("Thanks for visiting");
+    }
+}
+```
+
+# Conditional operator ("?")
+Conditional operator is used in conditional assignment if a condition is true or false.
+(condition) ? x : y : If x = true, then do x if not do y. The ? is like asking if it is true or not.
+
+```typescript
+   static public void Main(string[] args)
+   {
+       // METHOD ONE USING IF
+       
+       double temp = 20;
+       String message;
+
+       if (temp >= 15)
+       {
+           message = "It's warm outside";
+       }
+       else
+       {
+           message = "It's cold outside";
+       }
+       Console.WriteLine(message);
+```
+Both of these will returns the same value
+
+```typescript
+       // Another way to do the code above using condition
+       // METHOD 2 USING CONDITION
+       
+      message = (temp >= 15) ? "It's warm outside" : "It's cold outside";
+       Console.WriteLine(message);
+   }
+```
+# String interpolation
+String interpolation allows you to insert variables into a string using "$" where {} are placeholders
+```typescript
+ static public void Main(string[] args)
+ {
+     double temp = 20;
+     String message;
+
+     message = $"The temp outside is: {temp}";
+     Console.WriteLine(message);
+ }
+```
+The output is: The temp outside is: 20
+
+#  EXTRA: 
+## Visual studio useful tips
+*if you type **cw** and **press tab twice** in code it will autofill to Console.WriteLine( );
+
+***ctrl + shift + v** shows clipboard history so you can copy many different segments and paste them at once
+
+*Press F1 while your cursor is on any .NET type or method to open the docs for that type/method. 
+
+*Press or highlight a variable then press ctrl+R+R to change all references to the new one. 
+## ?
